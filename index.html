@@ -18,8 +18,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/intro.css">
 </head>
 <body>
+
+<!-- ========== INTRO / SEAL ANIMATION ========== -->
+<div class="intro" id="intro">
+  <button class="intro-skip" id="intro-skip" type="button" aria-label="Skip intro animation">Skip ↦</button>
+
+  <!-- Stage 1: envelope with wax seal -->
+  <div class="envelope-scene" id="envelope-scene">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Tap to open your invitation">
+      <div class="flap flap-bottom"></div>
+      <div class="flap flap-left"></div>
+      <div class="flap flap-right"></div>
+      <div class="flap flap-top"></div>
+      <div class="glow" aria-hidden="true"></div>
+      <div class="seal">G&amp;A</div>
+      <div class="envelope-base"></div>
+    </div>
+    <p class="tap-hint">Tap to open your invitation</p>
+  </div>
+
+  <!-- Stage 2: couple walking toward the church -->
+  <div class="church-scene" id="church-scene">
+    <div class="sunburst" aria-hidden="true"></div>
+
+    <svg class="church-arch" viewBox="0 0 240 300" aria-hidden="true">
+      <defs>
+        <linearGradient id="archGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FBF6EC" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#E7D2AA" stop-opacity=".25"/>
+        </linearGradient>
+      </defs>
+      <path d="M40,300 L40,160 Q40,55 120,38 Q200,55 200,160 L200,300 Z" fill="url(#archGrad)" stroke="#B8935A" stroke-width="3"/>
+      <rect x="112" y="6" width="16" height="34" fill="#B8935A"/>
+      <rect x="99" y="16" width="42" height="10" fill="#B8935A"/>
+    </svg>
+
+    <svg class="figures" viewBox="0 0 160 200" aria-hidden="true">
+      <!-- bride -->
+      <g fill="#6C5D4C">
+        <circle cx="58" cy="46" r="12"/>
+        <path d="M58 58 C40 70 30 120 26 170 L90 170 C86 120 76 70 58 58 Z"/>
+      </g>
+      <!-- groom -->
+      <g fill="#96723A">
+        <circle cx="104" cy="44" r="11"/>
+        <path d="M104 55 C90 62 86 100 84 170 L124 170 C122 100 118 62 104 55 Z"/>
+      </g>
+      <rect x="82" y="140" width="14" height="6" fill="#E7D2AA"/>
+    </svg>
+
+    <p class="church-text">
+      <span class="eyebrow-light">Together we walk toward</span>
+      <span class="church-script">Greshma &amp; Alan</span>
+      <span class="tap-hint tap-hint-light">tap to enter ↓</span>
+    </p>
+  </div>
+</div>
 
 <!-- decorative floating petals -->
 <div class="petals" aria-hidden="true"></div>
@@ -169,6 +226,7 @@
   <a href="#top" class="back-top">Back to top ↑</a>
 </footer>
 
+<script src="js/intro.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
