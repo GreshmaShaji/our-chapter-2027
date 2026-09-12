@@ -66,36 +66,3 @@
   tick();
   const timer = setInterval(tick, 1000);
 })();
-
-// ===== RSVP form submission (Formspree) =====
-(function rsvpForm(){
-  const form = document.getElementById("rsvp-form");
-  const status = document.getElementById("form-status");
-  if (!form) return;
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const submitBtn = form.querySelector("button[type=submit]");
-    submitBtn.disabled = true;
-    status.textContent = "Sending your RSVP...";
-
-    try{
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-      });
-
-      if (res.ok){
-        status.textContent = "Thank you! Your RSVP has been received. 💛";
-        form.reset();
-      } else {
-        status.textContent = "Something went wrong. Please try again or contact us directly.";
-      }
-    } catch (err){
-      status.textContent = "Something went wrong. Please try again or contact us directly.";
-    } finally {
-      submitBtn.disabled = false;
-    }
-  });
-})();

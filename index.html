@@ -107,7 +107,7 @@
       <div class="event-icon">✝️</div>
       <p class="event-tag">Wedding Ceremony</p>
       <h3>Sunday, January 31, 2027</h3>
-      <p class="event-time">11:00 AM &middot; followed by lunch</p>
+      <p class="event-time">11:00 AM &middot; followed by reception</p>
       <p class="event-venue">St. Mary&rsquo;s Orthodox Church<br>Othera</p>
       <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=St.+Marys+Orthodox+Church+Othera" target="_blank" rel="noopener">Open in Google Maps</a>
       <div class="map-embed">
@@ -130,61 +130,30 @@
   </div>
 </section>
 
-<!-- ========== GALLERY ========== -->
-<section class="gallery" id="gallery">
-  <p class="section-kicker">A few moments</p>
-  <h2 class="section-title">Our Gallery</h2>
-  <p class="gallery-note">Photos coming soon &mdash; check back closer to the big day!</p>
+<!-- ========== WISHES ========== -->
+<section class="wishes" id="wishes">
+  <p class="section-kicker">Share the love</p>
+  <h2 class="section-title">Wishes for Us</h2>
+  <p class="wishes-note">Leave a message for Greshma &amp; Alan &mdash; it&rsquo;ll show up here for everyone to see.</p>
 
-  <div class="gallery-grid">
-    <div class="gallery-item"><span class="monogram">G</span></div>
-    <div class="gallery-item wide"><span class="monogram">G&amp;A</span></div>
-    <div class="gallery-item"><span class="monogram">A</span></div>
-    <div class="gallery-item"><span class="monogram">28</span></div>
-    <div class="gallery-item wide"><span class="monogram">01</span></div>
-    <div class="gallery-item"><span class="monogram">27</span></div>
-  </div>
-</section>
-
-<!-- ========== RSVP ========== -->
-<section class="rsvp" id="rsvp">
-  <p class="section-kicker">Kindly respond</p>
-  <h2 class="section-title">RSVP</h2>
-  <p class="rsvp-note">We can&rsquo;t wait to celebrate with you &mdash; please let us know if you&rsquo;ll be joining us by <strong>January 10, 2027</strong>.</p>
-
-  <form class="rsvp-form corner-vine" id="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <form class="wishes-form corner-vine" id="wishes-form">
     <div class="form-row">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required placeholder="Your name">
+      <label for="wish-name">Your Name</label>
+      <input type="text" id="wish-name" name="name" required maxlength="60" placeholder="Your name">
     </div>
 
     <div class="form-row">
-      <label for="guests">Number of Guests</label>
-      <select id="guests" name="guests" required>
-        <option value="" disabled selected>Select</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5+</option>
-      </select>
+      <label for="wish-message">Your Wish</label>
+      <textarea id="wish-message" name="message" rows="3" required maxlength="500" placeholder="Write your wishes here..."></textarea>
     </div>
 
-    <fieldset class="form-row">
-      <legend>Which events will you attend?</legend>
-      <label class="checkbox"><input type="checkbox" name="attending" value="Engagement"> Engagement &ndash; Jan 28</label>
-      <label class="checkbox"><input type="checkbox" name="attending" value="Wedding"> Wedding &ndash; Jan 31</label>
-      <label class="checkbox"><input type="checkbox" name="attending" value="Reception"> Reception &ndash; Jan 31</label>
-    </fieldset>
-
-    <div class="form-row">
-      <label for="message">Message for the couple (optional)</label>
-      <textarea id="message" name="message" rows="3" placeholder="Leave your wishes here..."></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-solid">Send RSVP</button>
-    <p class="form-status" id="form-status" role="status"></p>
+    <button type="submit" class="btn btn-solid">Send Wishes</button>
+    <p class="form-status" id="wishes-status" role="status"></p>
   </form>
+
+  <div class="wishes-list" id="wishes-list">
+    <p class="wishes-empty" id="wishes-empty">Be the first to leave a wish! 💛</p>
+  </div>
 </section>
 
 <!-- ========== FOOTER ========== -->
@@ -196,5 +165,6 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script type="module" src="js/wishes.js"></script>
 </body>
 </html>

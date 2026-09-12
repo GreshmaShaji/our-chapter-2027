@@ -1,21 +1,36 @@
 # Greshma & Alan — Wedding Invitation Website
 
-A single-page, mobile-first wedding invitation site. Ivory & gold theme, countdown timer, event details with maps, photo gallery, and an RSVP form.
+A single-page, mobile-first wedding invitation site. Ivory & gold theme, countdown timer, event details with maps, background music, and a public wishes wall.
 
 ## Before you launch
 
-1. **RSVP form** — the form currently points to a placeholder Formspree endpoint.
-   - Go to https://formspree.io, sign up free (50 submissions/month on the free plan).
-   - Create a new form, copy the form endpoint (looks like `https://formspree.io/f/xxxxabcd`).
-   - Open `index.html`, find `action="https://formspree.io/f/YOUR_FORM_ID"` and replace `YOUR_FORM_ID` with your real ID.
-   - RSVP responses will show up in your Formspree dashboard and can be emailed to you automatically.
-
-2. **Photos** — the gallery currently shows elegant placeholder monograms. To add real photos:
-   - Drop image files into the `images/` folder.
-   - In `index.html`, replace a `<div class="gallery-item">...</div>` block with:
-     ```html
-     <div class="gallery-item" style="background-image:url('images/your-photo.jpg'); background-size:cover; background-position:center;"></div>
+1. **Wishes wall** — needs a free Firebase project to store and share messages with every visitor in real time.
+   - Go to https://console.firebase.google.com and create a new project (free Spark plan is enough).
+   - In the project, go to **Build → Firestore Database → Create database** — start in **production mode**.
+   - Once created, go to the **Rules** tab and replace the rules with:
      ```
+     rules_version = '2';
+     service cloud.firestore {
+       match /databases/{database}/documents {
+         match /wishes/{wishId} {
+           allow read: if true;
+           allow create: if request.resource.data.name is string
+                         && request.resource.data.name.size() > 0
+                         && request.resource.data.name.size() < 60
+                         && request.resource.data.message is string
+                         && request.resource.data.message.size() > 0
+                         && request.resource.data.message.size() < 500;
+           allow update, delete: if false;
+         }
+       }
+     }
+     ```
+     This lets anyone read and add a wish, but nobody can edit or delete one from the site itself (you can still delete inappropriate entries yourself from the Firebase console).
+   - Back in the project overview, click the **`</>` (web) icon** to register a web app, then copy the `firebaseConfig` object it gives you.
+   - Open `js/wishes.js` and paste your values over the placeholder `firebaseConfig` object near the top of the file.
+   - That's it — wishes submitted by any visitor will now appear live for everyone who opens the site.
+
+2. **Background music** — currently plays `Music/sabhayam-thiru-sabhayam-orthodox_N9Rx82qS.mp3` on load (with a mute/unmute button). Swap the file or update the `src` in `index.html`'s `<audio id="bg-music">` tag if you'd rather use a different track.
 
 3. **Double-check the venue names** in the Google Maps links/embeds resolve correctly on your phone — search terms used were "St. Stephens Auditorium Pathanamthitta", "St. Marys Orthodox Church Othera", and "Manimala Parish Hall Othera". If Maps doesn't pinpoint them exactly, replace the `q=` value in each `<iframe>` src and the `query=` value in each "Open in Google Maps" link with the exact place name or a maps link you trust.
 
