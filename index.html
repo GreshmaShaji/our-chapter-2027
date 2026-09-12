@@ -22,96 +22,83 @@
 </head>
 <body>
 
-<!-- ========== INTRO / SEAL ANIMATION ========== -->
-<div class="intro" id="intro">
-  <button class="intro-skip" id="intro-skip" type="button" aria-label="Skip intro animation">Skip ↦</button>
+<!-- ========== HERO: ribbon + curtains + arch reveal ========== -->
+<section class="hero-arch" id="top">
 
-  <!-- Stage 1: envelope with wax seal -->
-  <div class="envelope-scene" id="envelope-scene">
-    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Tap to open your invitation">
-      <div class="flap flap-bottom"></div>
-      <div class="flap flap-left"></div>
-      <div class="flap flap-right"></div>
-      <div class="flap flap-top"></div>
-      <div class="glow" aria-hidden="true"></div>
-      <div class="seal">G&amp;A</div>
-      <div class="envelope-base"></div>
+  <div class="curtain curtain-left" aria-hidden="true"></div>
+  <div class="curtain curtain-right" aria-hidden="true"></div>
+
+  <div class="ribbon" id="ribbon" role="button" tabindex="0" aria-label="Tap the ribbon to open your invitation">
+    <svg viewBox="0 0 200 130" aria-hidden="true">
+      <g class="ribbon-tail-left"><path d="M92,66 L68,124 L85,109 L98,128 Z" fill="var(--gold-deep)"/></g>
+      <g class="ribbon-tail-right"><path d="M108,66 L132,124 L115,109 L102,128 Z" fill="var(--gold-deep)"/></g>
+      <g class="ribbon-loop-left"><path d="M96,58 C58,42 36,20 53,8 C74,-3 97,28 101,54 Z" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="2"/></g>
+      <g class="ribbon-loop-right"><path d="M104,58 C142,42 164,20 147,8 C126,-3 103,28 99,54 Z" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="2"/></g>
+      <circle class="ribbon-knot" cx="100" cy="58" r="15" fill="var(--gold-deep)"/>
+    </svg>
+  </div>
+  <p class="tap-hint">Tap the ribbon to open</p>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+        <path d="M0.07,1 L0.07,0.44 C0.07,0.06 0.5,0.06 0.5,0.06 C0.5,0.06 0.93,0.06 0.93,0.44 L0.93,1 Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div class="arch-content">
+    <div class="arch-photo-frame">
+      <img class="arch-photo" src="images/A4639B51-C697-4DE7-91DC-55721DA076B6.PNG" alt="Greshma and Alan">
+      <svg class="arch-outline" viewBox="0 0 260 340" aria-hidden="true">
+        <path d="M18,340 L18,150 Q18,22 130,22 Q242,22 242,150 L242,340" fill="none" stroke="var(--gold)" stroke-width="3"/>
+      </svg>
     </div>
-    <p class="tap-hint">Tap to open your invitation</p>
-  </div>
 
-  <!-- Stage 2: couple walking toward the church -->
-  <div class="church-scene" id="church-scene">
-    <div class="sunburst" aria-hidden="true"></div>
-
-    <svg class="church-arch" viewBox="0 0 240 300" aria-hidden="true">
-      <defs>
-        <linearGradient id="archGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#FBF6EC" stop-opacity=".55"/>
-          <stop offset="100%" stop-color="#E7D2AA" stop-opacity=".25"/>
-        </linearGradient>
-      </defs>
-      <path d="M40,300 L40,160 Q40,55 120,38 Q200,55 200,160 L200,300 Z" fill="url(#archGrad)" stroke="#B8935A" stroke-width="3"/>
-      <rect x="112" y="6" width="16" height="34" fill="#B8935A"/>
-      <rect x="99" y="16" width="42" height="10" fill="#B8935A"/>
-    </svg>
-
-    <svg class="figures" viewBox="0 0 160 200" aria-hidden="true">
-      <!-- bride -->
-      <g fill="#6C5D4C">
-        <circle cx="58" cy="46" r="12"/>
-        <path d="M58 58 C40 70 30 120 26 170 L90 170 C86 120 76 70 58 58 Z"/>
-      </g>
-      <!-- groom -->
-      <g fill="#96723A">
-        <circle cx="104" cy="44" r="11"/>
-        <path d="M104 55 C90 62 86 100 84 170 L124 170 C122 100 118 62 104 55 Z"/>
-      </g>
-      <rect x="82" y="140" width="14" height="6" fill="#E7D2AA"/>
-    </svg>
-
-    <p class="church-text">
-      <span class="eyebrow-light">Together we walk toward</span>
-      <span class="church-script">Greshma &amp; Alan</span>
-      <span class="tap-hint tap-hint-light">tap to enter ↓</span>
+    <p class="arch-names">
+      <span class="arch-script">Greshma</span>
+      <span class="arch-amp">&amp;</span>
+      <span class="arch-script">Alan</span>
     </p>
+    <p class="arch-date">January 28&ndash;31, 2027</p>
+    <p class="arch-place">Pathanamthitta &amp; Othera, Kerala</p>
+
+    <a href="#families" class="scroll-hint">scroll down ↓</a>
   </div>
-</div>
 
-<!-- decorative floating petals -->
-<div class="petals" aria-hidden="true"></div>
+  <button class="intro-skip" id="intro-skip" type="button" aria-label="Skip animation">Skip ↦</button>
+</section>
 
-<!-- ========== HERO ========== -->
-<header class="hero" id="top">
-  <div class="hero-inner">
-    <p class="eyebrow">Together with our families</p>
-    <p class="hero-sub">we joyfully invite you to celebrate</p>
+<!-- ========== FAMILIES + COUNTDOWN ========== -->
+<section class="families" id="families">
+  <p class="section-kicker">With hearts full of joy</p>
+  <h2 class="section-title script">Together with our Families</h2>
 
-    <h1 class="hero-names">
-      <span>Greshma</span>
-      <span class="amp">&amp;</span>
-      <span>Alan</span>
-    </h1>
-
-    <div class="divider"><span></span><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 21s-7-4.6-9.5-9C.7 8.2 2 4.8 5 4c2-.5 4 .6 5 2.3C11 4.6 13 3.5 15 4c3 .8 4.3 4.2 2.5 8-2.5 4.4-9.5 9-9.5 9z" fill="currentColor"/></svg><span></span></div>
-
-    <p class="hero-dates">January 28 &ndash; 31, 2027</p>
-    <p class="hero-place">Pathanamthitta &amp; Othera, Kerala</p>
-
-    <a href="#events" class="btn btn-ghost">View Celebration Details ↓</a>
+  <div class="parents">
+    <div class="parents-group">
+      <p class="parents-label">Parents of the Bride</p>
+      <p class="parents-names">Shaji Samuel &amp; Santhi Shaji</p>
+    </div>
+    <div class="parents-divider" aria-hidden="true">&#10084;</div>
+    <div class="parents-group">
+      <p class="parents-label">Parents of the Groom</p>
+      <p class="parents-names">Jose Varghese &amp; Sunitha Jose</p>
+    </div>
   </div>
-</header>
 
-<!-- ========== COUNTDOWN ========== -->
-<section class="countdown-section">
-  <p class="section-kicker">Counting down to</p>
-  <h2 class="section-title">Our Wedding Day</h2>
-  <div class="countdown" id="countdown">
-    <div class="countdown-item"><span class="num" id="cd-days">00</span><span class="label">Days</span></div>
-    <div class="countdown-item"><span class="num" id="cd-hours">00</span><span class="label">Hours</span></div>
-    <div class="countdown-item"><span class="num" id="cd-mins">00</span><span class="label">Minutes</span></div>
-    <div class="countdown-item"><span class="num" id="cd-secs">00</span><span class="label">Seconds</span></div>
+  <p class="section-kicker countdown-kicker">Counting down to</p>
+  <h3 class="section-title small">Our Wedding Day</h3>
+
+  <div class="countdown-elegant" id="countdown">
+    <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
+    <span class="cd-sep">|</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
+    <span class="cd-sep">|</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
+    <span class="cd-sep">|</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
   </div>
+
   <p class="verse">&ldquo;And now these three remain: faith, hope and love. But the greatest of these is love.&rdquo; <span>&mdash; 1 Corinthians 13:13</span></p>
 </section>
 
@@ -122,7 +109,7 @@
 
   <div class="event-cards">
 
-    <article class="event-card">
+    <article class="event-card corner-vine">
       <div class="event-icon">💍</div>
       <p class="event-tag">Engagement</p>
       <h3>Thursday, January 28, 2027</h3>
@@ -134,7 +121,7 @@
       </div>
     </article>
 
-    <article class="event-card">
+    <article class="event-card corner-vine">
       <div class="event-icon">✝️</div>
       <p class="event-tag">Wedding Ceremony</p>
       <h3>Sunday, January 31, 2027</h3>
@@ -146,7 +133,7 @@
       </div>
     </article>
 
-    <article class="event-card">
+    <article class="event-card corner-vine">
       <div class="event-icon">🥂</div>
       <p class="event-tag">Reception</p>
       <h3>Sunday, January 31, 2027</h3>
@@ -183,7 +170,7 @@
   <h2 class="section-title">RSVP</h2>
   <p class="rsvp-note">We can&rsquo;t wait to celebrate with you &mdash; please let us know if you&rsquo;ll be joining us by <strong>January 10, 2027</strong>.</p>
 
-  <form class="rsvp-form" id="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <form class="rsvp-form corner-vine" id="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <div class="form-row">
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required placeholder="Your name">

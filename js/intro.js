@@ -1,49 +1,33 @@
-(function intro(){
-  const introEl = document.getElementById("intro");
-  const envelope = document.getElementById("envelope");
-  const envelopeScene = document.getElementById("envelope-scene");
-  const churchScene = document.getElementById("church-scene");
+(function heroReveal(){
+  const heroArch = document.getElementById("top");
+  const ribbon = document.getElementById("ribbon");
   const skipBtn = document.getElementById("intro-skip");
 
-  if (!introEl || !envelope) return;
+  if (!heroArch || !ribbon) return;
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  function openHero(){
+    if (heroArch.classList.contains("open")) return;
+    ribbon.classList.add("untied");
+    setTimeout(() => heroArch.classList.add("open"), 1600);
+  }
+
   if (prefersReducedMotion){
-    introEl.classList.add("hidden");
+    ribbon.classList.add("untied");
+    heroArch.classList.add("open");
     return;
   }
 
-  document.body.style.overflow = "hidden";
-
-  function endIntro(){
-    introEl.classList.add("hidden");
-    document.body.style.overflow = "";
-  }
-
-  function showChurchScene(){
-    envelopeScene.classList.add("fade-out");
-    setTimeout(() => churchScene.classList.add("active"), 450);
-    setTimeout(endIntro, 450 + 5200);
-  }
-
-  function openEnvelope(){
-    if (envelope.classList.contains("open")) return;
-    envelope.classList.add("open");
-    setTimeout(showChurchScene, 1100);
-  }
-
-  envelope.addEventListener("click", openEnvelope);
-  envelope.addEventListener("keydown", (e) => {
+  ribbon.addEventListener("click", openHero);
+  ribbon.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " "){
       e.preventDefault();
-      openEnvelope();
+      openHero();
     }
   });
 
-  churchScene.addEventListener("click", endIntro);
-  skipBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    endIntro();
-  });
+  if (skipBtn){
+    skipBtn.addEventListener("click", openHero);
+  }
 })();
