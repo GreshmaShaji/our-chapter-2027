@@ -127,6 +127,10 @@
   width: 100%;
   aspect-ratio: 260 / 340;
   margin: 0 auto 1.5rem;
+  border-radius: 50% 50% 6px 6px / 24% 24% 0 0;
+  overflow: hidden;
+  border: 3px solid var(--gold);
+  box-shadow: var(--shadow);
   opacity: 0;
   transform: scale(1.14);
   transition: opacity 2.2s ease, transform 2.2s ease;
@@ -140,16 +144,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  clip-path: url(#archClip);
-}
-
-.arch-photo-frame .arch-outline{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
 }
 
 .arch-photo-frame::after{
