@@ -39,6 +39,26 @@ body{
 
 img{ max-width:100%; display:block; }
 
+/* ===================== Music toggle ===================== */
+.music-toggle{
+  position: fixed;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  right: 16px;
+  z-index: 50;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-soft);
+  background: var(--white);
+  color: var(--gold-deep);
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
 /* ===================== Shared type ===================== */
 .section-kicker{
   text-align:center;

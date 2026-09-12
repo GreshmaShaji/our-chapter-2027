@@ -1,3 +1,34 @@
+// ===== Background music =====
+(function bgMusic(){
+  const audio = document.getElementById("bg-music");
+  const btn = document.getElementById("music-toggle");
+  if (!audio || !btn) return;
+
+  function updateIcon(){
+    btn.textContent = audio.paused ? "🔇" : "🔊";
+  }
+
+  function tryPlay(){
+    audio.play().then(updateIcon).catch(() => updateIcon());
+  }
+
+  // Attempt autoplay immediately; most mobile browsers block this until
+  // the visitor interacts with the page, so we also try on first tap.
+  tryPlay();
+  ["click", "touchstart"].forEach((evt) => {
+    document.addEventListener(evt, function firstInteraction(){
+      if (audio.paused) tryPlay();
+      document.removeEventListener(evt, firstInteraction);
+    }, { once: true });
+  });
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (audio.paused) tryPlay();
+    else { audio.pause(); updateIcon(); }
+  });
+})();
+
 // ===== Countdown to the wedding ceremony (Jan 31, 2027, 11:00 AM IST) =====
 (function countdown(){
   const target = new Date("2027-01-31T11:00:00+05:30").getTime();

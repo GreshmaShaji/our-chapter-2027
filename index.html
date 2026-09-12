@@ -22,22 +22,17 @@
 </head>
 <body>
 
-<!-- ========== HERO: ribbon + curtains + arch reveal ========== -->
+<!-- ========== Background music ========== -->
+<audio id="bg-music" src="Music/sabhayam-thiru-sabhayam-orthodox_N9Rx82qS.mp3" loop preload="auto"></audio>
+<button class="music-toggle" id="music-toggle" type="button" aria-label="Toggle background music">🔊</button>
+
+<!-- ========== HERO: photo + names ========== -->
 <section class="hero-arch" id="top">
-
-  <div class="curtain curtain-left" aria-hidden="true"></div>
-  <div class="curtain curtain-right" aria-hidden="true"></div>
-
-  <div class="ribbon" id="ribbon" role="button" tabindex="0" aria-label="Tap the ribbon to open your invitation">
-    <svg viewBox="0 0 200 130" width="200" height="130" aria-hidden="true">
-      <g class="ribbon-tail-left"><path d="M92,66 L68,124 L85,109 L98,128 Z" fill="var(--gold-deep)"/></g>
-      <g class="ribbon-tail-right"><path d="M108,66 L132,124 L115,109 L102,128 Z" fill="var(--gold-deep)"/></g>
-      <g class="ribbon-loop-left"><path d="M96,58 C58,42 36,20 53,8 C74,-3 97,28 101,54 Z" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="2"/></g>
-      <g class="ribbon-loop-right"><path d="M104,58 C142,42 164,20 147,8 C126,-3 103,28 99,54 Z" fill="var(--gold-soft)" stroke="var(--gold)" stroke-width="2"/></g>
-      <circle class="ribbon-knot" cx="100" cy="58" r="15" fill="var(--gold-deep)"/>
-    </svg>
-  </div>
-  <p class="tap-hint">Tap the ribbon to open</p>
+  <div class="hero-rays" aria-hidden="true"></div>
+  <div class="hero-window-outer" aria-hidden="true"></div>
+  <div class="hero-window-inner" aria-hidden="true"></div>
+  <div class="hero-vine hero-vine-tl" aria-hidden="true"></div>
+  <div class="hero-vine hero-vine-br" aria-hidden="true"></div>
 
   <div class="arch-content">
     <div class="arch-photo-frame">
@@ -54,8 +49,6 @@
 
     <a href="#families" class="scroll-hint">scroll down ↓</a>
   </div>
-
-  <button class="intro-skip" id="intro-skip" type="button" aria-label="Skip animation">Skip ↦</button>
 </section>
 
 <!-- ========== FAMILIES + COUNTDOWN ========== -->
@@ -202,7 +195,6 @@
   <a href="#top" class="back-top">Back to top ↑</a>
 </footer>
 
-<script src="js/intro.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
