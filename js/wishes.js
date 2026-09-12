@@ -10,15 +10,13 @@ import {
   onSnapshot,
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
-// TODO: replace with your own free Firebase project config.
-// See README.md for step-by-step setup instructions.
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyC22somHCe0-W6pTHYoVLQE4Iq5Gd5M3QQ",
+  authDomain: "wishes-2b727.firebaseapp.com",
+  projectId: "wishes-2b727",
+  storageBucket: "wishes-2b727.firebasestorage.app",
+  messagingSenderId: "1001733979823",
+  appId: "1:1001733979823:web:3c07d96867866e149dde5a",
 };
 
 const app = initializeApp(firebaseConfig);
