@@ -31,14 +31,14 @@
 }
 .hero-window-outer{
   width: min(92vw, 620px);
-  aspect-ratio: 3 / 4;
+  height: min(92svh, 820px);
   border: 2px solid var(--gold-soft);
   opacity: .45;
   transform: translate(-50%, -50%);
 }
 .hero-window-inner{
-  width: min(78vw, 520px);
-  aspect-ratio: 3 / 4;
+  width: min(82vw, 540px);
+  height: min(84svh, 740px);
   border: 1px solid var(--sage);
   opacity: .32;
   transform: translate(-50%, -52%);
