@@ -31,6 +31,7 @@
     <a href="#celebrations">Celebrations</a>
     <a href="#memories">Memories</a>
     <a href="#rsvp">RSVP</a>
+    <a href="#wishes">Send Wishes</a>
   </nav>
 
   <main>
@@ -297,7 +298,7 @@
       <div class="memories-gallery">
 
         <button class="memory-photo" type="button" aria-label="View memory 1">
-          <img src="images/memory1.jpg" alt="Greshma and Alan together" loading="lazy" />
+          <img src="images/memory15.jpg" alt="Greshma and Alan together" loading="lazy" />
         </button>
 
         <button class="memory-photo" type="button" aria-label="View memory 2">
@@ -353,7 +354,7 @@
         </button>
 
         <button class="memory-photo" type="button" aria-label="View memory 15">
-          <img src="images/memory15.jpg" alt="Greshma and Alan together" loading="lazy" />
+          <img src="images/memory1.jpg" alt="Greshma and Alan together" loading="lazy" />
         </button>
 
         <button class="memory-photo" type="button" aria-label="View memory 16">
@@ -397,39 +398,178 @@
 
     </div>
 
-    <!-- RSVP -->
+    <!-- RSVP & WISHES -->
 
-    <section class="rsvp-section" id="rsvp">
-      <div class="floral-divider">✧ ♡ ✧</div>
+    <section class="guest-section" id="rsvp">
+      <div class="guest-heading">
+        <span class="guest-ornament">✧ ♡ ✧</span>
+        <h2>Celebrate With Us</h2>
+        <p>
+          Your presence would make our special day
+          even more beautiful.
+        </p>
+      </div>
 
-      <h2 class="script-heading">
-        We Hope You Can Join Us
-      </h2>
+      <div class="guest-forms">
 
-      <p>
-        Your presence is the greatest gift
-        we could ask for.
-      </p>
+        <!-- RSVP -->
+        <div class="guest-card">
+          <h3>Kindly RSVP</h3>
+          <p class="card-intro">
+            Let us know if you'll be joining us!
+          </p>
 
-      <p class="rsvp-note">
-        RSVP registration coming soon.
-      </p>
+          <form id="rsvpForm">
+            <label for="guestName">Your Name *</label>
+            <input
+              id="guestName"
+              name="name"
+              type="text"
+              placeholder="Full name"
+              maxlength="100"
+              required
+            />
+
+            <label for="guestEmail">
+              Email (optional)
+            </label>
+            <input
+              id="guestEmail"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+            />
+
+            <fieldset>
+              <legend>Will you be joining us? *</legend>
+              <label class="choice">
+                <input type="radio"
+                       name="attendance"
+                       value="Attending"
+                       required />
+                Joyfully accepts
+              </label>
+
+              <label class="choice">
+                <input type="radio"
+                       name="attendance"
+                       value="Declining" />
+                Regretfully declines
+              </label>
+            </fieldset>
+
+            <fieldset id="eventChoices">
+              <legend>Which celebration(s)?</legend>
+
+              <label class="choice">
+                <input type="checkbox"
+                       name="events"
+                       value="Engagement" />
+                Engagement — 28 January
+              </label>
+
+              <label class="choice">
+                <input type="checkbox"
+                       name="events"
+                       value="Wedding" />
+                Wedding — 31 January
+              </label>
+
+              <label class="choice">
+                <input type="checkbox"
+                       name="events"
+                       value="Reception" />
+                Reception — 31 January
+              </label>
+            </fieldset>
+
+            <div id="guestCountContainer">
+              <label for="guestCount">
+                Number of attendees (including you)
+              </label>
+              <input
+                id="guestCount"
+                name="guest_count"
+                type="number"
+                min="1"
+                max="20"
+                value="1"
+              />
+            </div>
+
+            <button type="submit" class="gold-button">
+              Send RSVP ♡
+            </button>
+
+            <p id="rsvpStatus"
+               class="form-status"
+               role="status"
+               aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- WISHES -->
+        <div class="guest-card" id="wishes">
+          <h3>Leave Us Your Wishes</h3>
+          <p class="card-intro">
+            A little love, a prayer, or a beautiful
+            blessing — we'd love to hear from you.
+          </p>
+
+          <form id="wishesForm">
+            <label for="wishName">Your Name *</label>
+            <input
+              id="wishName"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              maxlength="100"
+              required
+            />
+
+            <label for="wishMessage">
+              Your Wishes for Greshma & Alan *
+            </label>
+
+            <textarea
+              id="wishMessage"
+              name="message"
+              placeholder="Write your heartfelt wishes..."
+              maxlength="2000"
+              rows="7"
+              required
+            ></textarea>
+
+            <button type="submit" class="gold-button">
+              Send Your Blessings ♡
+            </button>
+
+            <p id="wishesStatus"
+               class="form-status"
+               role="status"
+               aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
     </section>
 
     <!-- FOOTER -->
 
-    <footer>
-      <div class="footer-names">
-        Greshma & Alan
-      </div>
+    <footer class="wedding-footer">
+      <div class="guest-ornament">✧ ♡ ✧</div>
 
-      <p>
+      <p class="closing-message">
+        Your presence is our greatest blessing.
+      </p>
+
+      <h2>Greshma & Alan</h2>
+
+      <p class="footer-tagline">
         TWO HEARTS • ONE BEAUTIFUL FOREVER
       </p>
 
-      <p>
-        JANUARY 2027
-      </p>
+      <p class="footer-date">31 JANUARY 2027</p>
     </footer>
 
   </main>

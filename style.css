@@ -606,40 +606,208 @@ body {
   cursor: pointer;
 }
 
-/* RSVP SECTION */
+/* RSVP AND WISHES */
 
-.rsvp-section {
-  padding: 80px 10% 100px;
+.guest-section {
+  padding: 95px 5%;
+  background: #faf3e8;
+  color: #755a3f;
+}
+
+.guest-heading {
   text-align: center;
+  margin-bottom: 55px;
 }
 
-.rsvp-section p {
-  font: 22px "Cormorant Garamond", serif;
-  letter-spacing: .5px;
-  margin: 0;
+.guest-ornament {
+  color: var(--gold);
+  font-size: 26px;
 }
 
-.rsvp-note {
-  margin-top: 30px !important;
-  font-size: 17px !important;
+.guest-heading h2 {
+  font: 500 clamp(48px, 6vw, 78px)
+    "Cormorant Garamond", serif;
+  color: var(--dark-gold);
+  margin: 20px 0;
+}
+
+.guest-heading p {
+  font: 24px/1.4 "Cormorant Garamond", serif;
+  max-width: 650px;
+  margin: auto;
+}
+
+.guest-forms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+  align-items: start;
+}
+
+.guest-card {
+  min-width: 0;
+  padding: 40px;
+  background: #fffcf7;
+  border: 1px solid #dfc39c;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(151,106,53,.05);
+}
+
+.guest-card h3 {
+  font: 600 39px "Cormorant Garamond", serif;
+  color: var(--dark-gold);
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.card-intro {
+  font: 20px/1.4 "Cormorant Garamond", serif;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.guest-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guest-card label,
+.guest-card legend {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.guest-card input[type="text"],
+.guest-card input[type="email"],
+.guest-card input[type="number"],
+.guest-card textarea {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #dbc3a0;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #60472f;
+  font: 14px "Montserrat", sans-serif;
+}
+
+.guest-card textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.guest-card input:focus,
+.guest-card textarea:focus {
+  outline: 2px solid #bc925e;
+  outline-offset: 2px;
+}
+
+.guest-card fieldset {
+  border: none;
+  padding: 0;
+  margin: 15px 0 5px;
+  min-width: 0;
+}
+
+.guest-card legend {
+  margin-bottom: 14px;
+}
+
+.guest-card .choice {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 400;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.guest-card .choice input {
+  accent-color: var(--gold);
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+#guestCountContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gold-button {
+  margin-top: 20px;
+  padding: 17px 22px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(
+    135deg, #bf965b, #986c39
+  );
+  font: 16px "Cormorant Garamond", serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.gold-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px #a67d5140;
+}
+
+.gold-button:disabled {
+  cursor: wait;
+  opacity: .65;
+}
+
+.form-status {
+  min-height: 20px;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.form-status.success {
+  color: #397148;
+}
+
+.form-status.error {
+  color: #a33d32;
 }
 
 /* FOOTER */
 
-footer {
-  padding: 50px 20px;
+.wedding-footer {
+  background: #fffbf4;
+  padding: 80px 20px 90px;
   text-align: center;
 }
 
-footer .footer-names {
-  font: 42px "Great Vibes", cursive;
+.closing-message {
+  font: 28px "Cormorant Garamond", serif;
   color: var(--dark-gold);
+  margin: 28px 0 50px;
 }
 
-footer p {
-  font-size: 11px;
-  letter-spacing: 2px;
+.wedding-footer h2 {
+  font: 56px "Great Vibes", cursive;
+  font-weight: 400;
   color: var(--dark-gold);
+  margin: 0 0 18px;
+}
+
+.footer-tagline,
+.footer-date {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #a37a49;
+}
+
+.footer-date {
+  margin-top: 18px;
 }
 
 /* TABLETS */
@@ -769,5 +937,26 @@ footer p {
     top: 15px;
     right: 20px;
     font-size: 34px;
+  }
+
+  .guest-section {
+    padding: 65px 5%;
+  }
+
+  .guest-forms {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .guest-card {
+    padding: 30px 22px;
+  }
+
+  .guest-card h3 {
+    font-size: 35px;
+  }
+
+  .wedding-footer h2 {
+    font-size: 48px;
   }
 }

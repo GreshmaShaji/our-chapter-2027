@@ -109,3 +109,120 @@ if (lightbox) {
     }
   });
 }
+
+// RSVP & Wishes forms (Formspree)
+
+const RSVP_ENDPOINT = "https://formspree.io/f/mdeaddjv";
+const WISHES_ENDPOINT = "https://formspree.io/f/xqpelljr";
+
+const rsvpForm = document.getElementById("rsvpForm");
+const wishesForm = document.getElementById("wishesForm");
+
+if (rsvpForm && wishesForm) {
+  const attendanceInputs = rsvpForm.querySelectorAll(
+    'input[name="attendance"]'
+  );
+
+  const eventChoices = document.getElementById("eventChoices");
+  const guestCountContainer = document.getElementById("guestCountContainer");
+
+  function updateAttendance() {
+    const attending = rsvpForm.querySelector(
+      'input[name="attendance"]:checked'
+    )?.value === "Attending";
+
+    eventChoices.hidden = !attending;
+    guestCountContainer.hidden = !attending;
+
+    eventChoices.querySelectorAll("input").forEach((input) => {
+      input.disabled = !attending;
+      if (!attending) input.checked = false;
+    });
+
+    const guestCount = document.getElementById("guestCount");
+    guestCount.disabled = !attending;
+    guestCount.required = attending;
+  }
+
+  attendanceInputs.forEach((input) => {
+    input.addEventListener("change", updateAttendance);
+  });
+
+  updateAttendance();
+
+  async function submitWeddingForm(form, endpoint, statusId, successMessage) {
+    const status = document.getElementById(statusId);
+    const button = form.querySelector('button[type="submit"]');
+
+    status.textContent = "Sending...";
+    status.className = "form-status";
+    button.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      status.textContent = successMessage;
+      status.className = "form-status success";
+
+      form.reset();
+
+      if (form === rsvpForm) {
+        updateAttendance();
+      }
+    } catch (error) {
+      status.textContent =
+        "We couldn't send your message. Please try again.";
+      status.className = "form-status error";
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  rsvpForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const attending = rsvpForm.querySelector(
+      'input[name="attendance"]:checked'
+    )?.value === "Attending";
+
+    const selectedEvents = rsvpForm.querySelectorAll(
+      'input[name="events"]:checked'
+    );
+
+    const status = document.getElementById("rsvpStatus");
+
+    if (attending && selectedEvents.length === 0) {
+      status.textContent = "Please select at least one celebration.";
+      status.className = "form-status error";
+      return;
+    }
+
+    submitWeddingForm(
+      rsvpForm,
+      RSVP_ENDPOINT,
+      "rsvpStatus",
+      "Thank you! Your RSVP has been received. ♡"
+    );
+  });
+
+  wishesForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    submitWeddingForm(
+      wishesForm,
+      WISHES_ENDPOINT,
+      "wishesStatus",
+      "Your beautiful wishes have been received! ♡"
+    );
+  });
+}
