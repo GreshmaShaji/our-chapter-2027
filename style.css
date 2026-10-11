@@ -361,6 +361,29 @@ body {
   margin-bottom: 32px;
 }
 
+.verse-block {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.verse-text {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--dark-gold);
+  max-width: 480px;
+  margin: 0 auto 14px;
+}
+
+.verse-ref {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #a17a4a;
+  margin: 0;
+}
+
 /* FULL-WIDTH CELEBRATIONS (Part 2 — outside the sticky grid) */
 
 .full-celebrations {
