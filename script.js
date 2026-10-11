@@ -64,3 +64,48 @@ if (photoPanel && storySection) {
 
   photoSwap.observe(storySection);
 }
+
+// Memories gallery lightbox
+
+const lightbox = document.getElementById("memoryLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.querySelector(".lightbox-close");
+const memoryPhotos = document.querySelectorAll(".memory-photo");
+
+function openLightbox(src, alt) {
+  lightboxImage.src = src;
+  lightboxImage.alt = alt;
+  lightbox.classList.add("open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImage.src = "";
+  document.body.style.overflow = "";
+}
+
+memoryPhotos.forEach((button) => {
+  button.addEventListener("click", () => {
+    const img = button.querySelector("img");
+    openLightbox(img.src, img.alt);
+  });
+});
+
+if (lightboxClose) {
+  lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightbox) {
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("open")) {
+      closeLightbox();
+    }
+  });
+}

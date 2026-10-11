@@ -480,6 +480,132 @@ body {
   color: #a17a4a;
 }
 
+/* OUR MEMORIES */
+
+.memories-section {
+  padding: 100px 6% 110px;
+  text-align: center;
+  background: var(--ivory);
+}
+
+.memories-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(46px, 5vw, 70px);
+  font-weight: 500;
+  color: var(--dark-gold);
+  margin: 0 0 14px;
+}
+
+.memories-heading p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  color: #a17a4a;
+  margin: 0;
+}
+
+.memories-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: 220px;
+  margin: 28px auto;
+}
+
+.memories-divider span:not(.heart):not(.flower) {
+  flex: 1;
+  height: 1px;
+  background: var(--soft-gold);
+}
+
+.memories-divider .heart,
+.memories-divider .flower {
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.memories-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 55px auto 0;
+}
+
+.memory-photo {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 6px 18px rgba(150, 105, 55, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memory-photo:hover,
+.memory-photo:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(150, 105, 55, 0.2);
+}
+
+.memory-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.memories-footer {
+  margin-top: 70px;
+}
+
+.memories-footer p {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #9b7955;
+  margin: 0;
+}
+
+/* LIGHTBOX */
+
+.memory-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(25, 17, 10, 0.88);
+}
+
+.memory-lightbox.open {
+  display: flex;
+}
+
+.memory-lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  border: 0;
+  background: none;
+  color: white;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+}
+
 /* RSVP SECTION */
 
 .rsvp-section {
@@ -541,6 +667,10 @@ footer p {
 
   .celebration-card h3 {
     font-size: 30px;
+  }
+
+  .memories-gallery {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -623,5 +753,21 @@ footer p {
 
   .celebration-ending {
     margin-top: 60px;
+  }
+
+  .memories-section {
+    padding: 70px 6% 90px;
+  }
+
+  .memories-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+  }
+
+  .lightbox-close {
+    top: 15px;
+    right: 20px;
+    font-size: 34px;
   }
 }
