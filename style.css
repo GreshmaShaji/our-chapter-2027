@@ -361,75 +361,123 @@ body {
   margin-bottom: 32px;
 }
 
-/* QUESTION ANSWER */
+/* FULL-WIDTH CELEBRATIONS (Part 2 — outside the sticky grid) */
 
-.question {
+.full-celebrations {
+  position: relative;
+  width: 100%;
+  padding: 100px 6% 110px;
+  background: #faf3e8;
+  text-align: center;
+  overflow: hidden;
+}
+
+.celebration-heading {
   margin-bottom: 65px;
 }
 
-.question h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 25px;
-  font-weight: 700;
+.celebration-heading .ornament {
+  font-size: 26px;
   color: var(--gold);
-  margin: 0 0 10px;
 }
 
-.question p {
-  font-size: 17px;
-  line-height: 1.8;
+.celebration-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(46px, 5vw, 78px);
+  font-weight: 500;
+  color: var(--dark-gold);
+  margin: 20px 0;
+}
+
+.celebration-heading p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  color: #a17a4a;
+}
+
+.celebration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.celebration-card {
+  min-width: 0;
+  background: #fffcf7;
+  border: 1px solid #dfc39c;
+  border-radius: 12px;
+  padding: 60px 28px;
+  min-height: 400px;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.celebration-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(150,105,55,0.12);
+}
+
+.card-icon {
+  font-size: 34px;
+  color: var(--gold);
+  margin-bottom: 25px;
+}
+
+.celebration-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--dark-gold);
+  margin: 0 0 25px;
+}
+
+.event-date {
+  font-weight: 600;
+  font-size: 15px;
+  color: #846345;
+  line-height: 1.7;
   margin: 0;
 }
 
-/* CELEBRATIONS / EVENT CARDS */
-
-.events {
-  padding: 80px 8% 100px;
-  text-align: center;
-  background: #fcf3e7;
+.event-location {
+  font-size: 16px;
+  color: #846345;
+  margin: 22px 0;
 }
 
-.section-title {
-  font: 46px "Cormorant Garamond", serif;
+.event-description {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #9b7955;
+  margin: 0 0 22px;
+}
+
+.map-link {
+  display: inline-block;
+  font-size: 13px;
   color: var(--dark-gold);
-  margin: 0 0 45px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-  max-width: 100%;
-  margin: 0 0 40px;
+.celebration-ending {
+  margin-top: 80px;
 }
 
-.event-card {
-  padding: 50px 22px;
-  background: var(--ivory);
-  border: 1px solid #dfc39c;
-  border-radius: 8px;
-}
-
-.event-card .symbol {
-  font-size: 30px;
-  color: var(--gold);
-}
-
-.event-card h3 {
-  font: 32px "Cormorant Garamond", serif;
-  color: var(--dark-gold);
-  margin-bottom: 12px;
-}
-
-.event-card p {
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.closing {
+.celebration-ending p {
   font-family: "Great Vibes", cursive;
-  font-size: 40px;
-  margin-top: 40px;
+  font-size: clamp(38px, 4vw, 60px);
+  color: var(--dark-gold);
+  margin-bottom: 15px;
+}
+
+.celebration-ending span {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #a17a4a;
 }
 
 /* RSVP SECTION */
@@ -479,9 +527,20 @@ footer p {
     padding: 60px 8%;
   }
 
-  .story-introduction p,
-  .question p {
+  .story-introduction p {
     font-size: 15px;
+  }
+
+  .celebration-grid {
+    gap: 14px;
+  }
+
+  .celebration-card {
+    padding: 38px 16px;
+  }
+
+  .celebration-card h3 {
+    font-size: 30px;
   }
 }
 
@@ -537,25 +596,32 @@ footer p {
     padding: 65px 8% 85px;
   }
 
-  .story-introduction p,
-  .question p {
+  .story-introduction p {
     font-size: 16px;
     line-height: 1.8;
-  }
-
-  .question h3 {
-    font-size: 24px;
   }
 
   .gold-decoration {
     height: 85px;
   }
 
-  .event-grid {
-    grid-template-columns: 1fr;
+  .full-celebrations {
+    padding: 70px 7%;
   }
 
-  .section-title {
-    font-size: 38px;
+  .celebration-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 22px;
+    margin: 0 auto;
+  }
+
+  .celebration-card {
+    min-height: auto;
+    padding: 40px 25px;
+  }
+
+  .celebration-ending {
+    margin-top: 60px;
   }
 }
