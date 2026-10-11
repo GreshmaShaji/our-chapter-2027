@@ -629,6 +629,36 @@ body {
   cursor: pointer;
 }
 
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
 /* RSVP AND WISHES */
 
 .guest-section {
@@ -960,6 +990,20 @@ body {
     top: 15px;
     right: 20px;
     font-size: 34px;
+  }
+
+  .lightbox-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
   }
 
   .guest-section {

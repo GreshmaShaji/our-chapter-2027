@@ -65,16 +65,26 @@ if (photoPanel && storySection) {
   photoSwap.observe(storySection);
 }
 
-// Memories gallery lightbox
+// Memories gallery lightbox (with prev/next + swipe)
 
 const lightbox = document.getElementById("memoryLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.querySelector(".lightbox-close");
+const lightboxPrev = document.querySelector(".lightbox-prev");
+const lightboxNext = document.querySelector(".lightbox-next");
 const memoryPhotos = document.querySelectorAll(".memory-photo");
 
-function openLightbox(src, alt) {
-  lightboxImage.src = src;
-  lightboxImage.alt = alt;
+let currentPhotoIndex = 0;
+
+function showPhoto(index) {
+  currentPhotoIndex = (index + memoryPhotos.length) % memoryPhotos.length;
+  const img = memoryPhotos[currentPhotoIndex].querySelector("img");
+  lightboxImage.src = img.src;
+  lightboxImage.alt = img.alt;
+}
+
+function openLightbox(index) {
+  showPhoto(index);
   lightbox.classList.add("open");
   lightbox.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -87,15 +97,26 @@ function closeLightbox() {
   document.body.style.overflow = "";
 }
 
-memoryPhotos.forEach((button) => {
-  button.addEventListener("click", () => {
-    const img = button.querySelector("img");
-    openLightbox(img.src, img.alt);
-  });
+memoryPhotos.forEach((button, index) => {
+  button.addEventListener("click", () => openLightbox(index));
 });
 
 if (lightboxClose) {
   lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightboxPrev) {
+  lightboxPrev.addEventListener("click", (e) => {
+    e.stopPropagation();
+    showPhoto(currentPhotoIndex - 1);
+  });
+}
+
+if (lightboxNext) {
+  lightboxNext.addEventListener("click", (e) => {
+    e.stopPropagation();
+    showPhoto(currentPhotoIndex + 1);
+  });
 }
 
 if (lightbox) {
@@ -104,10 +125,30 @@ if (lightbox) {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox.classList.contains("open")) {
-      closeLightbox();
-    }
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showPhoto(currentPhotoIndex - 1);
+    if (e.key === "ArrowRight") showPhoto(currentPhotoIndex + 1);
   });
+
+  // Swipe support (touch)
+  let touchStartX = 0;
+
+  lightbox.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  }, { passive: true });
+
+  lightbox.addEventListener("touchend", (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+    const swipeThreshold = 40;
+
+    if (deltaX > swipeThreshold) {
+      showPhoto(currentPhotoIndex - 1);
+    } else if (deltaX < -swipeThreshold) {
+      showPhoto(currentPhotoIndex + 1);
+    }
+  }, { passive: true });
 }
 
 // RSVP & Wishes forms (Formspree)
