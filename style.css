@@ -1,0 +1,561 @@
+:root {
+  --ivory: #fffaf2;
+  --gold: #b88b4a;
+  --dark-gold: #976a35;
+  --soft-gold: #d6b37e;
+  --text: #493b30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* MAIN TWO-COLUMN LAYOUT */
+
+.wedding-layout {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  align-items: stretch;
+}
+
+/* LEFT PHOTO PANEL (sticky, crossfades between two photos) */
+
+.photo-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.photo-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1.6s ease;
+}
+
+.photo-layer-1 {
+  background-image: url("images/A4639B51-C697-4DE7-91DC-55721DA076B6.PNG");
+  opacity: 1;
+  z-index: 0;
+}
+
+.photo-layer-2 {
+  background-image: url("images/golden-hour-old-town-selfie.png");
+  opacity: 0;
+  z-index: 1;
+}
+
+.photo-panel.show-second .photo-layer-2 {
+  opacity: 1;
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    rgba(0,0,0,0.54) 100%
+  );
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 7%;
+  left: 10%;
+  right: 8%;
+  color: white;
+  z-index: 3;
+}
+
+.photo-caption h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(45px, 5vw, 78px);
+  font-weight: 400;
+  margin: 0 0 15px;
+}
+
+.photo-caption p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.4;
+  max-width: 580px;
+  margin: 0;
+}
+
+/* MENU */
+
+.menu-button {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 20;
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  padding: 14px 20px;
+  background: var(--ivory);
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+
+  font-size: 14px;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.navigation {
+  position: fixed;
+  top: 85px;
+  left: 25px;
+  z-index: 20;
+
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+
+  min-width: 180px;
+  padding: 22px;
+  background: var(--ivory);
+  border: 1px solid var(--soft-gold);
+  border-radius: 12px;
+  box-shadow: 0 12px 35px #00000025;
+}
+
+.navigation.open {
+  display: flex;
+}
+
+.navigation a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* RIGHT CONTENT PANEL */
+
+.content-panel {
+  min-width: 0;
+  background: var(--ivory);
+  color: var(--text);
+}
+
+/* WEDDING INVITATION SECTION (first scrolling section) */
+
+.wedding-section {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 8%;
+
+  background-color: #f8eddc;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 29px,
+      rgba(184, 139, 74, 0.3) 30px 32px,
+      transparent 33px 60px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 29px,
+      rgba(184, 139, 74, 0.3) 30px 32px,
+      transparent 33px 60px
+    );
+}
+
+.invitation {
+  background: var(--ivory);
+  border: 2px solid rgba(184,139,74,.55);
+  outline: 9px solid rgba(255,250,242,.75);
+  border-radius: 45% 45% 40% 40% / 19% 19% 19% 19%;
+  padding: 65px 25px;
+  width: 100%;
+  max-width: 460px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 11px;
+  color: var(--dark-gold);
+}
+
+.wedding-date {
+  font: clamp(30px, 3vw, 44px)
+    "Cormorant Garamond", serif;
+  color: var(--dark-gold);
+  margin: 35px 0 8px;
+  line-height: 1.2;
+}
+
+.location {
+  font: 28px "Cormorant Garamond", serif;
+  color: var(--dark-gold);
+  margin: 0 0 38px;
+}
+
+/* COUNTDOWN */
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin: 24px 0 34px;
+}
+
+.time-box {
+  background: #fbf3e7;
+  min-width: 65px;
+  flex: 1;
+  max-width: 100px;
+  padding: 16px 5px;
+  border-radius: 12px;
+}
+
+.time-box strong {
+  display: block;
+  font: 32px "Cormorant Garamond", serif;
+  color: var(--dark-gold);
+}
+
+.time-box span {
+  font: 15px "Cormorant Garamond", serif;
+}
+
+/* BUTTONS */
+
+.rsvp-button {
+  display: inline-block;
+  padding: 16px 60px;
+  background: linear-gradient(
+    135deg,
+    #b88b4a,
+    #9f733a
+  );
+  border-radius: 40px;
+  color: white;
+  text-decoration: none;
+  font: 19px "Cormorant Garamond", serif;
+  letter-spacing: 2px;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.rsvp-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px #b88b4a44;
+}
+
+.view-details {
+  color: var(--dark-gold);
+  text-decoration: none;
+  margin-top: 34px;
+  font-size: 13px;
+}
+
+.down-arrow {
+  font-size: 26px;
+  display: block;
+  margin-top: 6px;
+}
+
+/* GOLD DECORATIVE DIVIDER */
+
+.gold-decoration {
+  height: 130px;
+  background-color: var(--ivory);
+
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 16px,
+      #d6b37e 17px 19px,
+      transparent 20px 35px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 16px,
+      #d6b37e 17px 19px,
+      transparent 20px 35px
+    );
+
+  overflow: hidden;
+}
+
+.gold-decoration svg {
+  width: 100%;
+  height: 100%;
+  background: var(--ivory);
+  clip-path: polygon(
+    0 0,
+    50% 70%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* STORY SECTION */
+
+.story-section {
+  padding: 75px 10% 95px;
+}
+
+.script-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(43px, 4vw, 65px);
+  font-weight: 400;
+  text-align: center;
+  color: var(--gold);
+  margin: 0;
+}
+
+.floral-divider {
+  margin: 30px 0 65px;
+  text-align: center;
+  font-size: 23px;
+  color: var(--soft-gold);
+  letter-spacing: 12px;
+}
+
+/* INTRO PARAGRAPHS */
+
+.story-introduction {
+  margin-bottom: 80px;
+}
+
+.story-introduction p {
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+/* QUESTION ANSWER */
+
+.question {
+  margin-bottom: 65px;
+}
+
+.question h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+
+.question p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* CELEBRATIONS / EVENT CARDS */
+
+.events {
+  padding: 80px 8% 100px;
+  text-align: center;
+  background: #fcf3e7;
+}
+
+.section-title {
+  font: 46px "Cormorant Garamond", serif;
+  color: var(--dark-gold);
+  margin: 0 0 45px;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 100%;
+  margin: 0 0 40px;
+}
+
+.event-card {
+  padding: 50px 22px;
+  background: var(--ivory);
+  border: 1px solid #dfc39c;
+  border-radius: 8px;
+}
+
+.event-card .symbol {
+  font-size: 30px;
+  color: var(--gold);
+}
+
+.event-card h3 {
+  font: 32px "Cormorant Garamond", serif;
+  color: var(--dark-gold);
+  margin-bottom: 12px;
+}
+
+.event-card p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.closing {
+  font-family: "Great Vibes", cursive;
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+/* RSVP SECTION */
+
+.rsvp-section {
+  padding: 80px 10% 100px;
+  text-align: center;
+}
+
+.rsvp-section p {
+  font: 22px "Cormorant Garamond", serif;
+  letter-spacing: .5px;
+  margin: 0;
+}
+
+.rsvp-note {
+  margin-top: 30px !important;
+  font-size: 17px !important;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+footer .footer-names {
+  font: 42px "Great Vibes", cursive;
+  color: var(--dark-gold);
+}
+
+footer p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--dark-gold);
+}
+
+/* TABLETS */
+
+@media (max-width: 950px) {
+  .wedding-layout {
+    grid-template-columns: 50% 50%;
+  }
+
+  .story-section {
+    padding: 60px 8%;
+  }
+
+  .story-introduction p,
+  .question p {
+    font-size: 15px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .wedding-layout {
+    display: block;
+  }
+
+  .photo-panel {
+    position: relative;
+    top: auto;
+    height: 72svh;
+    min-height: 420px;
+  }
+
+  .photo-caption {
+    left: 7%;
+    right: 7%;
+    bottom: 7%;
+  }
+
+  .photo-caption h1 {
+    font-size: 53px;
+  }
+
+  .photo-caption p {
+    font-size: 18px;
+  }
+
+  .menu-button {
+    left: 15px;
+    top: 15px;
+  }
+
+  .navigation {
+    left: 15px;
+    top: 74px;
+  }
+
+  .wedding-section {
+    min-height: auto;
+    padding: 60px 6%;
+  }
+
+  .invitation {
+    padding: 50px 20px;
+    min-height: auto;
+  }
+
+  .story-section {
+    padding: 65px 8% 85px;
+  }
+
+  .story-introduction p,
+  .question p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .question h3 {
+    font-size: 24px;
+  }
+
+  .gold-decoration {
+    height: 85px;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 38px;
+  }
+}
