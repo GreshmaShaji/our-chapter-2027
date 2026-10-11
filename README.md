@@ -1,63 +1,44 @@
 # Greshma & Alan — Wedding Invitation Website
 
-A single-page, mobile-first wedding invitation site. Ivory & gold theme, countdown timer, event details with maps, background music, and a public wishes wall.
+A two-page, mobile-first wedding invitation site:
+
+- **`index.html`** — home page: top navbar, split-screen hero (your photo + an invitation card with a live countdown), and a celebrations section.
+- **`story.html`** — "Our Story" page: a sticky photo panel on the left (stays in view while you scroll) with your golden-hour photo, and a scrolling Our Story / Celebrations panel on the right.
+
+Both pages link to each other via the nav menu (Home ↔ Our Story).
 
 ## Before you launch
 
-1. **Wishes wall** — needs a free Firebase project to store and share messages with every visitor in real time.
-   - Go to https://console.firebase.google.com and create a new project (free Spark plan is enough).
-   - In the project, go to **Build → Firestore Database → Create database** — start in **production mode**.
-   - Once created, go to the **Rules** tab and replace the rules with:
-     ```
-     rules_version = '2';
-     service cloud.firestore {
-       match /databases/{database}/documents {
-         match /wishes/{wishId} {
-           allow read: if true;
-           allow create: if request.resource.data.name is string
-                         && request.resource.data.name.size() > 0
-                         && request.resource.data.name.size() < 60
-                         && request.resource.data.message is string
-                         && request.resource.data.message.size() > 0
-                         && request.resource.data.message.size() < 500;
-           allow update, delete: if false;
-         }
-       }
-     }
-     ```
-     This lets anyone read and add a wish, but nobody can edit or delete one from the site itself (you can still delete inappropriate entries yourself from the Firebase console).
-   - Back in the project overview, click the **`</>` (web) icon** to register a web app, then copy the `firebaseConfig` object it gives you.
-   - Open `js/wishes.js` and paste your values over the placeholder `firebaseConfig` object near the top of the file.
-   - That's it — wishes submitted by any visitor will now appear live for everyone who opens the site.
+A few things are still placeholders:
 
-2. **Background music** — currently plays `Music/sabhayam-thiru-sabhayam-orthodox_N9Rx82qS.mp3` on load (with a mute/unmute button). Swap the file or update the `src` in `index.html`'s `<audio id="bg-music">` tag if you'd rather use a different track.
+1. **Venue details** — the Engagement card on `index.html` says "Venue details coming soon" and the Wedding card just says "Othera, Kerala". Fill in the real venue names, addresses, and times in the `<section class="events">` block.
+2. **RSVP** — currently just says "RSVP registration coming soon." on `index.html`. You'll need to wire up an actual way for guests to respond (a form service, a shared form, or just your phone number/WhatsApp).
+3. **Ceremony time** — the countdown on `index.html` currently counts down to midnight IST on Jan 31, 2027. Update the `weddingDate` line near the bottom of the file once your ceremony time is confirmed, e.g. `"2027-01-31T11:00:00+05:30"`.
+4. **Our Story answers** — the six Q&A entries on `story.html` (`How did you two meet?`, etc.) are placeholder text — fill in your real answers in the `<div class="story-questions">` block.
 
-3. **Double-check the venue names** in the Google Maps links/embeds resolve correctly on your phone — search terms used were "St. Stephens Auditorium Pathanamthitta", "St. Marys Orthodox Church Othera", and "Manimala Parish Hall Othera". If Maps doesn't pinpoint them exactly, replace the `q=` value in each `<iframe>` src and the `query=` value in each "Open in Google Maps" link with the exact place name or a maps link you trust.
+## Photos
+
+- `index.html` hero uses `images/A4639B51-C697-4DE7-91DC-55721DA076B6.PNG`.
+- `story.html` sticky photo uses `images/golden-hour-old-town-selfie.png`.
+
+Swap either by changing the `url(...)` in the relevant CSS file (`index.html`'s inline `<style>` for the home page, `story.css` for the Our Story page).
 
 ## Deploying for free on GitHub Pages
 
-1. Create a new **public** GitHub repository named `our-chapter-2027` (kept generic on purpose — it doesn't reveal your names in the repo listing or URL).
-2. From this folder, run:
+1. From this folder, commit and push your changes:
    ```bash
-   git init
    git add .
-   git commit -m "Wedding invitation site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/our-chapter-2027.git
-   git push -u origin main
+   git commit -m "Update wedding site"
+   git push
    ```
-3. On GitHub: **Settings → Pages → Source → Deploy from branch → main → / (root)** → Save.
-4. Your site will be live at `https://<your-username>.github.io/our-chapter-2027/` within a couple of minutes.
+2. On GitHub: **Settings → Pages → Source → Deploy from branch → main → / (root)** → Save (only needed once, if not already set up).
+3. Your site will be live at `https://<your-username>.github.io/our-chapter-2027/` within a couple of minutes, with the Our Story page at `.../story.html`.
 
-> **Note on privacy:** the repo *name* being generic only keeps it from showing up if someone browses your GitHub profile or searches repo names. The live site itself is still a public URL — anyone who has the link (or guesses it) can open it, since GitHub Pages on the free plan requires the repo to be public. Only share the link with people you want to invite, and avoid posting it anywhere publicly indexed (like a public social media post) if you want to keep it low-key.
+> **Note on privacy:** the repo name being generic only keeps it from showing up if someone browses your GitHub profile or searches repo names. The live site itself is still a public URL — anyone who has the link can open it, since GitHub Pages on the free plan requires the repo to be public. Only share the link with people you want to invite.
 
 ### Using your own domain (optional, still free hosting)
 If you buy a custom domain later, add a `CNAME` file in this folder containing just your domain (e.g. `greshmaandalan.com`), then point your domain's DNS to GitHub Pages per [GitHub's custom domain guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
 ## Local preview
 
-Just open `index.html` in a browser, or run a tiny local server from this folder:
-```bash
-python3 -m http.server 8000
-```
-then visit `http://localhost:8000`.
+Just open `index.html` or `story.html` directly in a browser — no server needed.

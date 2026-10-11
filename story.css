@@ -1,0 +1,332 @@
+:root {
+  --ivory: #fffaf3;
+  --gold: #b98243;
+  --soft-gold: #d6b37e;
+  --text: #b98243;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  font-family: "Montserrat", sans-serif;
+}
+
+/* MAIN TWO-COLUMN LAYOUT */
+
+.wedding-layout {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  align-items: stretch;
+}
+
+/* LEFT PHOTO PANEL */
+
+.photo-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+
+  background-image: url("images/golden-hour-old-town-selfie.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    rgba(0,0,0,0.54) 100%
+  );
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 7%;
+  left: 10%;
+  right: 8%;
+  color: white;
+  z-index: 1;
+}
+
+.photo-caption h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(45px, 5vw, 78px);
+  font-weight: 400;
+  margin: 0 0 15px;
+}
+
+.photo-caption p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.4;
+  max-width: 580px;
+  margin: 0;
+}
+
+/* MENU */
+
+.menu-button {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 20;
+
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  padding: 14px 20px;
+  background: var(--ivory);
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+
+  font-size: 14px;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.navigation {
+  position: fixed;
+  top: 85px;
+  left: 25px;
+  z-index: 20;
+
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+
+  min-width: 180px;
+  padding: 22px;
+  background: var(--ivory);
+  border: 1px solid var(--soft-gold);
+  border-radius: 12px;
+  box-shadow: 0 12px 35px #00000025;
+}
+
+.navigation.open {
+  display: flex;
+}
+
+.navigation a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* RIGHT CONTENT PANEL */
+
+.content-panel {
+  min-width: 0;
+  background: var(--ivory);
+  color: var(--text);
+}
+
+/* GOLD DECORATIVE TOP */
+
+.gold-decoration {
+  height: 130px;
+  background-color: #fffaf3;
+
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 16px,
+      #d6b37e 17px 19px,
+      transparent 20px 35px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 16px,
+      #d6b37e 17px 19px,
+      transparent 20px 35px
+    );
+
+  overflow: hidden;
+}
+
+.gold-decoration svg {
+  width: 100%;
+  height: 100%;
+  background: var(--ivory);
+  clip-path: polygon(
+    0 0,
+    50% 70%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* STORY SECTION */
+
+.story-section {
+  padding: 75px 10% 95px;
+}
+
+.script-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(43px, 4vw, 65px);
+  font-weight: 400;
+  text-align: center;
+  color: var(--gold);
+  margin: 0;
+}
+
+.floral-divider {
+  margin: 30px 0 65px;
+  text-align: center;
+  font-size: 23px;
+  color: var(--soft-gold);
+  letter-spacing: 12px;
+}
+
+/* INTRO PARAGRAPHS */
+
+.story-introduction {
+  margin-bottom: 80px;
+}
+
+.story-introduction p {
+  font-size: 17px;
+  line-height: 1.85;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+/* QUESTION ANSWER */
+
+.question {
+  margin-bottom: 65px;
+}
+
+.question h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+
+.question p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* CELEBRATIONS */
+
+.celebrations {
+  padding: 80px 10% 120px;
+  text-align: center;
+  background: #fcf3e7;
+}
+
+.event {
+  margin: 65px 0;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #dfc8a7;
+}
+
+.event h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.event p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.closing {
+  font-family: "Great Vibes", cursive;
+  font-size: 42px;
+  margin-top: 80px;
+}
+
+/* TABLETS */
+
+@media (max-width: 950px) {
+  .wedding-layout {
+    grid-template-columns: 50% 50%;
+  }
+
+  .story-section {
+    padding: 60px 8%;
+  }
+
+  .story-introduction p,
+  .question p {
+    font-size: 15px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .wedding-layout {
+    display: block;
+  }
+
+  .photo-panel {
+    position: relative;
+    top: auto;
+    height: 72svh;
+    min-height: 420px;
+    background-position: center;
+  }
+
+  .photo-caption {
+    left: 7%;
+    right: 7%;
+    bottom: 7%;
+  }
+
+  .photo-caption h1 {
+    font-size: 53px;
+  }
+
+  .photo-caption p {
+    font-size: 18px;
+  }
+
+  .menu-button {
+    left: 15px;
+    top: 15px;
+  }
+
+  .navigation {
+    left: 15px;
+    top: 74px;
+  }
+
+  .story-section {
+    padding: 65px 8% 85px;
+  }
+
+  .story-introduction p,
+  .question p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .question h3 {
+    font-size: 24px;
+  }
+
+  .gold-decoration {
+    height: 85px;
+  }
+}

@@ -1,168 +1,713 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>Greshma &amp; Alan | We're Getting Married</title>
-<meta name="description" content="Join us as we celebrate the engagement and wedding of Greshma Shaji and Alan Jose Varghese.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greshma & Alan | Our Wedding</title>
 
-<!-- Open Graph so the link looks nice when shared on WhatsApp -->
-<meta property="og:title" content="Greshma &amp; Alan | We're Getting Married">
-<meta property="og:description" content="Engagement: Jan 28, 2027 · Wedding: Jan 31, 2027">
-<meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+  <style>
+    :root {
+      --ivory: #fffaf2;
+      --cream: #f9f0e3;
+      --gold: #b88b4a;
+      --dark-gold: #976a35;
+      --text: #493b30;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/intro.css">
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--text);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      height: 76px;
+      padding: 0 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 250, 242, 0.97);
+      position: relative;
+      z-index: 10;
+    }
+
+    .brand {
+      font: 34px "Great Vibes", cursive;
+      color: var(--dark-gold);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: var(--dark-gold);
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      min-height: calc(100svh - 76px);
+    }
+
+    .hero-photo {
+      position: relative;
+      min-height: 700px;
+      background-image:
+        linear-gradient(
+          to top,
+          rgba(25, 17, 10, 0.65),
+          transparent 50%
+        ),
+        url("images/A4639B51-C697-4DE7-91DC-55721DA076B6.PNG");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 8%;
+      left: 9%;
+      right: 9%;
+      color: white;
+    }
+
+    .hero-caption h1 {
+      font: clamp(54px, 6vw, 100px)
+        "Great Vibes", cursive;
+      font-weight: 400;
+      margin: 0 0 12px;
+    }
+
+    .hero-caption p {
+      font: 21px/1.5 "Cormorant Garamond", serif;
+      max-width: 540px;
+      margin: 0;
+    }
+
+    /* GOLD PATTERN SIDE */
+
+    .hero-details {
+      padding: 35px;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+
+      background-color: #f8eddc;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          transparent 0 29px,
+          rgba(184, 139, 74, 0.3) 30px 32px,
+          transparent 33px 60px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          transparent 0 29px,
+          rgba(184, 139, 74, 0.3) 30px 32px,
+          transparent 33px 60px
+        );
+    }
+
+    .invitation {
+      background: var(--ivory);
+      border: 2px solid rgba(184,139,74,.55);
+      outline: 9px solid rgba(255,250,242,.75);
+      border-radius: 45% 45% 40% 40% / 19% 19% 19% 19%;
+      padding: 65px 25px;
+      width: 100%;
+      min-height: 660px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 11px;
+      color: var(--dark-gold);
+    }
+
+    .wedding-date {
+      font: clamp(32px, 3vw, 48px)
+        "Cormorant Garamond", serif;
+      color: var(--dark-gold);
+      margin: 35px 0 8px;
+      line-height: 1.2;
+    }
+
+    .location {
+      font: 30px "Cormorant Garamond", serif;
+      color: var(--dark-gold);
+      margin: 0 0 38px;
+    }
+
+    /* COUNTDOWN */
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      margin: 24px 0 34px;
+    }
+
+    .time-box {
+      background: #fbf3e7;
+      min-width: 65px;
+      flex: 1;
+      max-width: 100px;
+      padding: 16px 5px;
+      border-radius: 12px;
+    }
+
+    .time-box strong {
+      display: block;
+      font: 32px "Cormorant Garamond", serif;
+      color: var(--dark-gold);
+    }
+
+    .time-box span {
+      font: 15px "Cormorant Garamond", serif;
+    }
+
+    /* BUTTONS */
+
+    .rsvp-button {
+      display: inline-block;
+      padding: 16px 60px;
+      background: linear-gradient(
+        135deg,
+        #b88b4a,
+        #9f733a
+      );
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      font: 19px "Cormorant Garamond", serif;
+      letter-spacing: 2px;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .rsvp-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #b88b4a44;
+    }
+
+    .view-details {
+      color: var(--dark-gold);
+      text-decoration: none;
+      margin-top: 34px;
+      font-size: 13px;
+    }
+
+    .down-arrow {
+      font-size: 26px;
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* INTRODUCTION */
+
+    .intro {
+      text-align: center;
+      padding: 75px 20px;
+      background: var(--ivory);
+    }
+
+    .intro .small-ornament {
+      color: var(--gold);
+      font-size: 24px;
+    }
+
+    .intro h2 {
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      color: var(--dark-gold);
+      margin: 20px 0;
+    }
+
+    .intro p {
+      font: 24px "Cormorant Garamond", serif;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    /* EVENT CARDS */
+
+    .events {
+      padding: 70px 6% 100px;
+      text-align: center;
+      background: #f9f1e7;
+    }
+
+    .section-title {
+      font: 48px "Cormorant Garamond", serif;
+      color: var(--dark-gold);
+      margin: 0 0 45px;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .event-card {
+      padding: 55px 24px;
+      background: var(--ivory);
+      border: 1px solid #dfc39c;
+      border-radius: 8px;
+    }
+
+    .event-card .symbol {
+      font-size: 30px;
+      color: var(--gold);
+    }
+
+    .event-card h3 {
+      font: 37px "Cormorant Garamond", serif;
+      color: var(--dark-gold);
+      margin-bottom: 12px;
+    }
+
+    .event-card p {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 50px 20px;
+      text-align: center;
+      background: var(--ivory);
+    }
+
+    footer .footer-names {
+      font: 42px "Great Vibes", cursive;
+      color: var(--dark-gold);
+    }
+
+    footer p {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--dark-gold);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 0 5%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: var(--ivory);
+        flex-direction: column;
+        padding: 25px;
+        box-shadow: 0 10px 20px #00000015;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo {
+        min-height: 75svh;
+      }
+
+      .hero-details {
+        min-height: 650px;
+        padding: 30px;
+      }
+
+      .invitation {
+        min-height: 600px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-photo {
+        min-height: 65svh;
+      }
+
+      .hero-caption h1 {
+        font-size: 60px;
+      }
+
+      .hero-caption p {
+        font-size: 19px;
+      }
+
+      .hero-details {
+        padding: 20px;
+      }
+
+      .invitation {
+        padding: 70px 15px;
+      }
+
+      .wedding-date {
+        font-size: 35px;
+      }
+
+      .location {
+        font-size: 26px;
+      }
+
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 40px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ========== Background music ========== -->
-<audio id="bg-music" src="Music/sabhayam-thiru-sabhayam-orthodox_N9Rx82qS.mp3" loop preload="auto"></audio>
-<button class="music-toggle" id="music-toggle" type="button" aria-label="Toggle background music">🔊</button>
+  <!-- NAVIGATION -->
 
-<!-- ========== HERO: photo + names ========== -->
-<section class="hero-arch" id="top">
-  <div class="hero-rays" aria-hidden="true"></div>
-  <div class="hero-vine hero-vine-tl" aria-hidden="true"></div>
-  <div class="hero-vine hero-vine-br" aria-hidden="true"></div>
+  <header class="navbar">
+    <div class="brand">Greshma & Alan</div>
 
-  <div class="arch-content">
-    <div class="arch-photo-frame">
-      <img class="arch-photo" src="images/A4639B51-C697-4DE7-91DC-55721DA076B6.PNG" alt="Greshma and Alan">
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navLinks"
+    >☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="story.html">Our Story</a>
+      <a href="#events">Events</a>
+      <a href="#rsvp">RSVP</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+
+      <div class="hero-photo">
+
+        <div class="hero-caption">
+          <h1>Greshma & Alan</h1>
+
+          <p>
+            Together with our families, we joyfully
+            invite you to celebrate the beginning
+            of our forever. Your presence will
+            make our special day even more beautiful.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hero-details">
+
+        <div class="invitation">
+
+          <div class="ornament">❧</div>
+
+          <div class="eyebrow">Our Wedding</div>
+
+          <h2 class="wedding-date">
+            Sunday, January 31, 2027
+          </h2>
+
+          <p class="location">
+            Othera, Kerala
+          </p>
+
+          <div class="ornament">✦</div>
+
+          <!-- LIVE COUNTDOWN -->
+
+          <div class="countdown" id="countdown">
+
+            <div class="time-box">
+              <strong id="days">0</strong>
+              <span>Days</span>
+            </div>
+
+            <div class="time-box">
+              <strong id="hours">0</strong>
+              <span>Hrs</span>
+            </div>
+
+            <div class="time-box">
+              <strong id="minutes">0</strong>
+              <span>Mins</span>
+            </div>
+
+            <div class="time-box">
+              <strong id="seconds">0</strong>
+              <span>Secs</span>
+            </div>
+
+          </div>
+
+          <a href="#rsvp" class="rsvp-button">
+            RSVP →
+          </a>
+
+          <a href="#events" class="view-details">
+            View Details
+            <span class="down-arrow">⌄</span>
+          </a>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- INTRO SECTION -->
+
+    <section class="intro">
+      <div class="small-ornament">❧</div>
+
+      <h2>Two Hearts • One Beautiful Forever</h2>
+
+      <p>
+        28 January 2027 — Engagement
+        <br>
+        31 January 2027 — Wedding
+      </p>
+    </section>
+
+    <!-- CELEBRATIONS -->
+
+    <section class="events" id="events">
+
+      <h2 class="section-title">
+        Our Celebrations
+      </h2>
+
+      <div class="event-grid">
+
+        <article class="event-card">
+          <div class="symbol">✧</div>
+
+          <h3>The Engagement</h3>
+
+          <p>
+            Thursday, 28 January 2027
+          </p>
+
+          <p>
+            A beautiful beginning to our forever.
+          </p>
+
+          <p>
+            Venue details coming soon
+          </p>
+        </article>
+
+        <article class="event-card">
+          <div class="symbol">❧</div>
+
+          <h3>The Wedding</h3>
+
+          <p>
+            Sunday, 31 January 2027
+          </p>
+
+          <p>
+            Othera, Kerala
+          </p>
+
+          <p>
+            Together in love, faith and blessings.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- RSVP SECTION -->
+
+    <section class="intro" id="rsvp">
+      <div class="small-ornament">❧</div>
+
+      <h2>We Hope You Can Join Us</h2>
+
+      <p>
+        Your presence is the greatest gift
+        we could ask for.
+      </p>
+
+      <p style="margin-top: 30px; font-size: 17px;">
+        RSVP registration coming soon.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="footer-names">
+      Greshma & Alan
     </div>
 
-    <p class="arch-names">
-      <span class="arch-script">Greshma</span>
-      <span class="arch-amp">&amp;</span>
-      <span class="arch-script">Alan</span>
+    <p>
+      TWO HEARTS • ONE BEAUTIFUL FOREVER
     </p>
-    <p class="arch-date">January 2027</p>
-    <p class="arch-place">Pathanamthitta, Kerala, India</p>
 
-    <a href="#families" class="scroll-hint">scroll down ↓</a>
-  </div>
-</section>
+    <p>
+      JANUARY 2027
+    </p>
+  </footer>
 
-<!-- ========== FAMILIES + COUNTDOWN ========== -->
-<section class="families" id="families">
-  <p class="section-kicker">With hearts full of joy</p>
-  <h2 class="section-title script">Together with our Families</h2>
+  <script>
+    // Wedding countdown.
+    // Uses midnight in India Standard Time.
+    // Change the time when the ceremony time is confirmed.
 
-  <div class="parents">
-    <div class="parents-group">
-      <p class="parents-label">Parents of the Bride</p>
-      <p class="parents-names">Shaji Samuel &amp; Santhi Shaji</p>
-    </div>
-    <div class="parents-divider" aria-hidden="true">&#10084;</div>
-    <div class="parents-group">
-      <p class="parents-label">Parents of the Groom</p>
-      <p class="parents-names">Jose Varghese &amp; Sunitha Jose</p>
-    </div>
-  </div>
+    const weddingDate = new Date(
+      "2027-01-31T00:00:00+05:30"
+    ).getTime();
 
-  <p class="section-kicker countdown-kicker">Counting down to</p>
-  <h3 class="section-title small">Our Wedding Day</h3>
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = Math.max(
+        0,
+        weddingDate - now
+      );
 
-  <div class="countdown-elegant" id="countdown">
-    <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Days</span></div>
-    <span class="cd-sep">|</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Hours</span></div>
-    <span class="cd-sep">|</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Minutes</span></div>
-    <span class="cd-sep">|</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Seconds</span></div>
-  </div>
+      const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+      );
 
-  <p class="verse">&ldquo;And now these three remain: faith, hope and love. But the greatest of these is love.&rdquo; <span>&mdash; 1 Corinthians 13:13</span></p>
-</section>
+      const hours = Math.floor(
+        (distance / (1000 * 60 * 60)) % 24
+      );
 
-<!-- ========== EVENTS ========== -->
-<section class="events" id="events">
-  <p class="section-kicker">Save the date</p>
-  <h2 class="section-title">Celebration Details</h2>
+      const minutes = Math.floor(
+        (distance / (1000 * 60)) % 60
+      );
 
-  <div class="event-cards">
+      const seconds = Math.floor(
+        (distance / 1000) % 60
+      );
 
-    <article class="event-card corner-vine">
-      <div class="event-icon">💍</div>
-      <p class="event-tag">Engagement</p>
-      <h3>Thursday, January 28, 2027</h3>
-      <p class="event-time">12:00 PM</p>
-      <p class="event-venue">St. Stephen&rsquo;s Auditorium<br>Pathanamthitta</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=St.+Stephens+Auditorium+Pathanamthitta" target="_blank" rel="noopener">Open in Google Maps</a>
-      <div class="map-embed">
-        <iframe src="https://maps.google.com/maps?q=St+Stephens+Auditorium+Pathanamthitta&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to St. Stephen's Auditorium, Pathanamthitta"></iframe>
-      </div>
-    </article>
+      document.getElementById("days")
+        .textContent = days;
 
-    <article class="event-card corner-vine">
-      <div class="event-icon">✝️</div>
-      <p class="event-tag">Wedding Ceremony</p>
-      <h3>Sunday, January 31, 2027</h3>
-      <p class="event-time">11:00 AM &middot; followed by reception</p>
-      <p class="event-venue">St. Mary&rsquo;s Orthodox Church<br>Othera</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=St.+Marys+Orthodox+Church+Othera" target="_blank" rel="noopener">Open in Google Maps</a>
-      <div class="map-embed">
-        <iframe src="https://maps.google.com/maps?q=St+Marys+Orthodox+Church+Othera&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to St. Mary's Orthodox Church, Othera"></iframe>
-      </div>
-    </article>
+      document.getElementById("hours")
+        .textContent = hours;
 
-    <article class="event-card corner-vine">
-      <div class="event-icon">🥂</div>
-      <p class="event-tag">Reception</p>
-      <h3>Sunday, January 31, 2027</h3>
-      <p class="event-time">After the wedding ceremony</p>
-      <p class="event-venue">Manimala Parish Hall<br>Othera</p>
-      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Manimala+Parish+Hall+Othera" target="_blank" rel="noopener">Open in Google Maps</a>
-      <div class="map-embed">
-        <iframe src="https://maps.google.com/maps?q=Manimala+Parish+Hall+Othera&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Manimala Parish Hall, Othera"></iframe>
-      </div>
-    </article>
+      document.getElementById("minutes")
+        .textContent = minutes;
 
-  </div>
-</section>
+      document.getElementById("seconds")
+        .textContent = seconds;
+    }
 
-<!-- ========== WISHES ========== -->
-<section class="wishes" id="wishes">
-  <p class="section-kicker">Share the love</p>
-  <h2 class="section-title">Wishes for Us</h2>
-  <p class="wishes-note">Leave a message for Greshma &amp; Alan. It&rsquo;ll show up here for everyone to see.</p>
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-  <form class="wishes-form corner-vine" id="wishes-form">
-    <div class="form-row">
-      <label for="wish-name">Your Name</label>
-      <input type="text" id="wish-name" name="name" required maxlength="60" placeholder="Your name">
-    </div>
+    // Mobile navigation
 
-    <div class="form-row">
-      <label for="wish-message">Your Wish</label>
-      <textarea id="wish-message" name="message" rows="3" required maxlength="500" placeholder="Write your wishes here..."></textarea>
-    </div>
+    const menuToggle =
+      document.getElementById("menuToggle");
 
-    <button type="submit" class="btn btn-solid">Send Wishes</button>
-    <p class="form-status" id="wishes-status" role="status"></p>
-  </form>
+    const navLinks =
+      document.getElementById("navLinks");
 
-  <div class="wishes-list" id="wishes-list">
-    <p class="wishes-empty" id="wishes-empty">Be the first to leave a wish! 💛</p>
-  </div>
-</section>
+    menuToggle.addEventListener("click", () => {
+      const isOpen =
+        navLinks.classList.toggle("open");
 
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-  <div class="divider divider-light"><span></span><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 21s-7-4.6-9.5-9C.7 8.2 2 4.8 5 4c2-.5 4 .6 5 2.3C11 4.6 13 3.5 15 4c3 .8 4.3 4.2 2.5 8-2.5 4.4-9.5 9-9.5 9z" fill="currentColor"/></svg><span></span></div>
-  <p class="footer-names">Greshma &amp; Alan</p>
-  <p class="footer-note">We can&rsquo;t wait to celebrate this new chapter with you.</p>
-  <a href="#top" class="back-top">Back to top ↑</a>
-</footer>
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    });
 
-<script src="js/script.js"></script>
-<script type="module" src="js/wishes.js"></script>
+    navLinks.querySelectorAll("a")
+      .forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+        });
+      });
+  </script>
+
 </body>
 </html>
